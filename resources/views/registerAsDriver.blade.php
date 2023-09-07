@@ -19,9 +19,8 @@
                         As Driver
                     </h2>
                 </div>
-                <form method="post" name="contact-us" action="" id="multi-step-form">
-                    <fieldset id="step-1">
-                        <div class="row">
+                <form method="post" name="contact-us" action="">
+                    <div class="row">
                         <div class="col-md-12 form-group">
                             <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                         </div>
@@ -31,14 +30,9 @@
                         <div class="col-md-12 form-group">
                             <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone">
                         </div>
-
-                        <div class="col-md-12 form-group">
-                            <input type="number" class="form-control" id="id_number" name="id_number" placeholder="id_number">
-                        </div>
-
                         <div class="col-md-6 form-group">
                             <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" name="date_of_birth" data-target="#datetimepicker4" placeholder="Date of Birth" />
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" placeholder="Date" />
                                 <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
                                     <div class="input-group-text">
                                         <span class="lnr lnr-calendar-full"></span>
@@ -49,126 +43,39 @@
 
                         <div class="col-md-6 form-group">
                             <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" name="id_expire_date" data-target="#datetimepicker3" placeholder="ID expire date" />
+                                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" placeholder="Time" />
                                 <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
                                     <div class="input-group-text">
-                                        <span class="lnr lnr-calendar-full"></span>
+                                        <span class="lnr lnr-clock"></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-12 form-group">
-                            <select class="form-control" >
-
-                                <option>nationality</option>
-                                @foreach ($nationalities_jsonData as $item)
-                                    <option>{{ $item }}</option>
-                                @endforeach
+                            <select class="form-control" id="selectPerson">
+                                <option></option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
                             </select>
                         </div>
 
-
-{{--                        <div class="col-md-12 text-center">--}}
-{{--                                <button class="next-button">Next</button>--}}
-{{--                                --}}{{--                            <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Send Message</button>--}}
-{{--                        </div>--}}
-                    </div>
-                    </fieldset>
-
-                    <fieldset id="step-2">
-
-                        <div class="row">
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="region" name="region" placeholder="region">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="car_type" name="car_type" placeholder="car type">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="number" class="form-control" id="car_plate" name="car_plate" placeholder="car plate">
-                            </div>
-
+                        <div class="col-md-12 form-group">
+                            <textarea class="form-control" id="message" name="message" rows="6" placeholder="Your Message ..."></textarea>
                         </div>
-                        <br>
-
-
-
-
-                    </fieldset>
-
-                    <div class="col-md-12 text-center">
-                        <button class="btn btn-primary btn-shadow btn-lg" type="button" id="prev-button">Previous</button>
-                        <button class="btn btn-primary btn-shadow btn-lg" type="button" id="next-button">Next</button>
-                        <button class="btn btn-primary btn-shadow btn-lg" type="submit">Submit</button>
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Send Message</button>
+                        </div>
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
 
 </div>
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script src="{{asset('assets/js/popper.min.js')}}"></script>
-<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('assets/js/select2.min.js ')}}"></script>
-<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
-<script src="https://cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js"></script>
-<script src="vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
-
-<!-- Main JS -->
-<script src="{{asset('assets/js/app.min.js')}}"></script>
-
-<script>
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("multi-step-form");
-        const fieldsets = form.querySelectorAll("fieldset");
-        const prevButton = document.getElementById("prev-button");
-        const nextButton = document.getElementById("next-button");
-        let currentStep = 0;
-
-        function showStep(step) {
-            fieldsets.forEach((fieldset, index) => {
-                if (index === step) {
-                    fieldset.style.display = "block";
-                } else {
-                    fieldset.style.display = "none";
-                }
-            });
-        }
-
-        function validateStep(step) {
-            // Add validation logic for each step if needed
-            return true; // Return true for simplicity
-        }
-
-        nextButton.addEventListener("click", function () {
-            if (validateStep(currentStep)) {
-                currentStep++;
-                showStep(currentStep);
-            }
-        });
-
-        prevButton.addEventListener("click", function () {
-            if (currentStep > 0) {
-                currentStep--;
-                showStep(currentStep);
-            }
-        });
-
-        showStep(currentStep);
-    });
-
-
-
-</script>
 
 </body>
 
