@@ -23,7 +23,7 @@
 
 
             <div class="col-md-6">
-                <a href="#">
+                <a href="{{route('registerAsRestaurant')}}">
                     <div class="section-content bg-white p-5 shadow">
                         <div class="heading-section text-center">
                         <span class="subheading">
@@ -38,7 +38,7 @@
 
             </div>
             <div class="col-md-6">
-                <a href="#">
+                <a href="{{route('registerAsDriver')}}">
                 <div class="section-content bg-white p-5 shadow">
                     <div class="heading-section text-center">
                         <span class="subheading">

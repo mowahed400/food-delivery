@@ -53,14 +53,12 @@
                         </div>
 
                         <div class="col-md-12 form-group">
-                            <select class="form-control" id="selectPerson">
-                                <option></option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
+                                <select class="form-control" id="selectPerson">
+                                    @foreach ($nationalities_jsonData as $item)
+                                        <option>{{ $item }}</option>
+                                    @endforeach
+
+                                </select>
                         </div>
 
                         <div class="col-md-12 form-group">
